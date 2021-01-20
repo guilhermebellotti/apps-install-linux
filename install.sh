@@ -55,10 +55,14 @@ sudo apt update -y
 sudo apt upgrade -y
 
 ## Instalando o novo terminal ##
+sudo apt install git-all
+
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then # backup .zshrc
     echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+curl -SL https://api.github.com/repos/guilhermebellotti/apps-install-linux/tarball | tar -zxC $HOME
 
 ## Adicionando repositórios de terceiros e suporte a Snap (Driver Logitech, Lutris e Drivers Nvidia)##
 sudo apt-add-repository "$PPA_LIBRATBAG" -y
