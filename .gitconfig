@@ -8,5 +8,5 @@
 
 [alias]
 	ci = "!f() { git commit -m \"$*\"; }; f"
-	pom = push -u origin master
+	pom = push -u origin main
 	start = "!f() { git remote add origin \"$*\"; }; f"
