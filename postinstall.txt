@@ -1,0 +1,192 @@
+/*** Instalando placa vídeo NVIDIA ***/
+sudo sed -i '/cdrom/d' /etc/apt/sources.list
+sudo ubuntu-drivers autoinstall -y
+sudo add-apt-repository ppa:graphics-drivers/ppa -y
+sudo apt update
+sudo apt install nvidia-driver-460 -y
+
+sudo apt install ubuntu-restricted-extras
+
+sudo apt install meson libevince-dev gir1.2-gstreamer-1.0 librust-gstreamer-audio-sys-dev librust-gstreamer-audio-sys-dev libgtksourceview-4-dev libmusicbrainz5-dev libwebkit2gtk-4.0-dev libgirepository1.0-dev ninja-build
+
+sudo apt-get install gnome-sushi
+
+/*** Instalando apps em geral ***/
+sudo apt install curl -y
+sudo apt-get install git-all -y
+git config --global user.name "Guilherme Bellotti"
+git config --global user.email "guibellotti@hotmail.com"
+
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+sudo apt-get install compizconfig-settings-manager -y
+
+sudo apt install snapd -y
+sudo snap install --classic code
+
+sudo snap install spotify
+
+sudo snap install slack --classic
+
+sudo apt install p7zip-full imagemagick fakeroot make g++ -y
+curl -L -O https://github.com/davidbailey00/notion-deb-builder/releases/download/v2.0.11-patch2/notion-desktop_2.0.11_amd64.deb
+sudo dpkg -i notion-desktop_2.0.11_amd64.deb
+
+sudo wget https://github.com/danielchatfield/trello-desktop/releases/download/v0.1.9/Trello-linux-0.1.9.zip -O trello.zip &&
+sudo mkdir /opt/trello &&
+sudo unzip trello.zip -d /opt/trello/ &&
+sudo rm  trello.zip &&
+sudo ln -sf /opt/trello/Trello /usr/bin/trello &&
+echo -e '[Desktop Entry]\n Version=1.0\n Name=Trello\n Exec=/usr/bin/trello\n Icon=/opt/trello/resources/app/static/Icon.png\n Type=Application\n Categories=Application' | sudo tee /usr/share/applications/trello.desktop &&
+sudo chmod +x /usr/share/applications/trello.desktop
+
+mkdir $HOME/Projects
+
+wget -O $HOME/Downloads/zoom.deb https://zoom.us/client/latest/zoom_amd64.deb
+cd $HOME/Downloads
+sudo dpkg -i zoom.deb
+
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.7.1.zip
+unzip droidcam_latest.zip -d droidcam
+cd droidcam && sudo ./install-client
+cd
+sudo apt install adb -y
+sudo apt install v4l2loopback-utils v4l2loopback-dkms cmake nasm yasm pkg-config libgtk2.0-dev
+sudo modprobe v4l2loopback
+v4l2-ctl --list-devices     # check if you have dummy video devices
+
+
+# sudo insmod /lib/modules/`uname -r`/kernel/drivers/media/video/v4l2loopback-dc.ko width=1920 height=1080
+
+wget -O ~/Downloads/jetbrains.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.221.zip?_ga=2.219945242.203309254.1611249664-655209166.1611249664
+unzip ~/Downloads/jetbrains.zip fonts/*.ttf -d ~/Downloads/j
+mv ~/Downloads/j/fonts/ttf/*.ttf ~/Downloads/j
+rm -rf ~/Downloads/j/fonts
+mv ~/Downloads/j ~/.fonts
+rm -rf ~/Downloads/jetbrains.zip
+
+sudo apt-get install ffmpeg -y
+sudo add-apt-repository ppa:obsproject/obs-studio -y
+sudo apt --fix-broken install -y
+sudo apt-get update && sudo apt-get install obs-studio -y
+
+sudo snap install inkscape
+
+sudo snap install gimp
+
+sudo apt list --upgradable
+sudo apt upgrade -y
+
+wget https://download.virtualbox.org/virtualbox/6.1.16/VirtualBox-6.1.16-140961-Linux_amd64.run -O virtualbox.run
+chmod +x virtualbox.run
+sudo ./virtualbox.run
+
+sudo apt install wine64 -y
+
+wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -
+sudo wget http://deb.playonlinux.com/playonlinux_cosmic.list -O /etc/apt/sources.list.d/playonlinux.list
+sudo apt-get update
+sudo apt-get install playonlinux -y
+
+sudo apt install zsh -y
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit
+
+sudo snap install mailspring
+
+zsh
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+git clone https://github.com/guilhermebellotti/apps-install-linux.git
+mv apps-install-linux/.zshrc ~/
+mv apps-install-linux/.gitconfig ~/
+mv apps-install-linux/.gitignore_global ~/
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+exit
+zsh
+nvm install --lts
+nvm alias default node
+
+npm install -g npm
+npm install --global yarn
+npm install -g gatsby-cli
+npm install --global gulp-cli
+
+wget "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/7.4.13/xampp-linux-x64-7.4.13-0-installer.run/download" -O xampp-installer.run
+chmod +x xampp-installer.run
+sudo ./xampp-installer.run
+sudo apt-get install nautilus-admin -y
+sudo nano /usr/share/polkit-1/actions/xampp.policy
+"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <action id="org.freedesktop.policykit.pkexec.run-xampp">
+    <description>Run the Xampp Control Panel</description>
+    <message>Authentication is required to run the Xampp Control Panel</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/opt/lampp/manager-linux-x64.run</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">TRUE</annotate>
+  </action>
+</policyconfig>
+"
+sudo nano /usr/share/applications/xampp-control-panel.desktop
+"
+[Desktop Entry]
+Encoding=UTF-8
+Name=XAMPP Control Panel
+Comment=Start and Stop XAMPP
+Exec=pkexec /opt/lampp/manager-linux-x64.run
+Icon=/opt/lampp/htdocs/favicon.ico
+Categories=Application
+Type=Application
+Terminal=false
+"
+
+sudo nano /etc/pulse/daemon.conf
+-> SEARCH "enable-deferred-volume"
+-> FROM ";enable-deferred-volume = yes"
+-> TO enable-deferred-volume = no
+restart
+
+rm -rf apps-install-linux && rm -rf google-chrome-stable_current_amd64.deb && rm -rf notion-desktop_2.0.11_amd64.deb && rm -rf droidcam_latest.zip && rm -rf virtualbox.run && rm -rf xampp-installer.run
+
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+sudo snap install kate
+
+sudo add-apt-repository ppa:costales/yaru-colors-folder-color
+sudo apt install folder-color yaru-colors-folder-color -y
+
+CREATE SSH WITH NAME = "guilhermebellotti"
+ssh-keygen -t rsa -C "guibellotti@hotmail.com"
+
+CREATE SSH WITH NAME = "deivideallan"
+ssh-keygen -t rsa -C "deivide.allan@outlook.com"
+
+touch ~/.ssh/config
+nano ~/.ssh/config
+"
+#Default GitHub
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/guilhermebellotti
+  
+#Other host GitHub
+Host github-deivideallan
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/deivideallan
+"
