@@ -166,6 +166,9 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 
 sudo snap install kate
 
+sudo snap install ngrok
+ngrok authtoken TOKEN_HERE 
+
 sudo add-apt-repository ppa:costales/yaru-colors-folder-color
 sudo apt install folder-color yaru-colors-folder-color -y
 
