@@ -57,6 +57,13 @@ sudo apt install v4l2loopback-utils v4l2loopback-dkms cmake nasm yasm pkg-config
 sudo modprobe v4l2loopback
 v4l2-ctl --list-devices     # check if you have dummy video devices
 
+##CHANGE RESOLUTION (SIZE VÍDEO)
+OPEN AND CONNECT DROIDCAM. AFTER, DISCONNECT AND CLOSE APP
+sudo nano ~/.config/droidcam
+-> SEARCH size=0x0
+-> FROM size=0x0
+-> TO size=1920x1080
+
 
 # sudo insmod /lib/modules/`uname -r`/kernel/drivers/media/video/v4l2loopback-dc.ko width=1920 height=1080
 
@@ -114,7 +121,6 @@ nvm alias default node
 npm install -g npm
 npm install --global yarn
 npm install -g gatsby-cli
-npm install --global gulp-cli
 
 wget "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/7.4.13/xampp-linux-x64-7.4.13-0-installer.run/download" -O xampp-installer.run
 chmod +x xampp-installer.run
@@ -155,8 +161,8 @@ Terminal=false
 "
 
 sudo nano /etc/pulse/daemon.conf
--> SEARCH "enable-deferred-volume"
--> FROM ";enable-deferred-volume = yes"
+-> SEARCH enable-deferred-volume "
+-> FROM ;enable-deferred-volume = yes
 -> TO enable-deferred-volume = no
 restart
 
@@ -165,9 +171,6 @@ rm -rf apps-install-linux && rm -rf google-chrome-stable_current_amd64.deb && rm
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 sudo snap install kate
-
-sudo snap install ngrok
-ngrok authtoken TOKEN_HERE 
 
 sudo add-apt-repository ppa:costales/yaru-colors-folder-color
 sudo apt install folder-color yaru-colors-folder-color -y
@@ -193,3 +196,9 @@ Host github-deivideallan
   User git
   IdentityFile ~/.ssh/deivideallan
 "
+
+mv $HOME/guilhermebellotti ~/.ssh && mv $HOME/guilhermebellotti.pub ~/.ssh/
+mv $HOME/deivideallan ~/.ssh && mv $HOME/deivideallan.pub ~/.ssh/
+
+sudo apt install copyq
+
