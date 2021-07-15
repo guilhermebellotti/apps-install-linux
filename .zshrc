@@ -105,6 +105,7 @@ alias install="sudo apt install"
 alias update="sudo apt update"
 alias upgrade="sudo apt upgrade"
 alias remove="sudo apt remove"
+alias start_droidcam="sudo modprobe v4l2loopback && droidcam"
 alias zsh_history_fix="mv ~/.zsh_history ~/.zsh_history_bad ; strings ~/.zsh_history_bad > ~/.zsh_history ; fc -R ~/.zsh_history ; rm ~/.zsh_history_bad"
 
 SPACESHIP_PROMPT_ORDER=(

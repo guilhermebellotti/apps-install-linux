@@ -24,11 +24,11 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get install compizconfig-settings-manager -y
 
 sudo apt install snapd -y
-sudo snap install --classic code
+# sudo snap install --classic code
 
-sudo snap install spotify
+# sudo snap install spotify
 
-sudo snap install slack --classic
+# sudo snap install slack --classic
 
 sudo apt install p7zip-full imagemagick fakeroot make g++ -y
 curl -L -O https://github.com/davidbailey00/notion-deb-builder/releases/download/v2.0.11-patch2/notion-desktop_2.0.11_amd64.deb
@@ -48,7 +48,7 @@ wget -O $HOME/Downloads/zoom.deb https://zoom.us/client/latest/zoom_amd64.deb
 cd $HOME/Downloads
 sudo dpkg -i zoom.deb
 
-wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.7.1.zip
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.7.3.zip
 unzip droidcam_latest.zip -d droidcam
 cd droidcam && sudo ./install-client
 cd
@@ -119,8 +119,9 @@ nvm install --lts
 nvm alias default node
 
 npm install -g npm
-npm install --global yarn
+npm install -g yarn
 npm install -g gatsby-cli
+npm install -g gulp
 
 wget "https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/7.4.13/xampp-linux-x64-7.4.13-0-installer.run/download" -O xampp-installer.run
 chmod +x xampp-installer.run
@@ -200,5 +201,7 @@ Host github-deivideallan
 mv $HOME/guilhermebellotti ~/.ssh && mv $HOME/guilhermebellotti.pub ~/.ssh/
 mv $HOME/deivideallan ~/.ssh && mv $HOME/deivideallan.pub ~/.ssh/
 
-sudo apt install copyq
+sudo apt install qlipper
+
+mkdir -v ~/.{themes,icons}
 
